@@ -1,0 +1,62 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".txt" #>
+<#@ include file="$(SolutionDir)\Packages\T4.TemplateFileManager.2.2.1\tools\ttinc\TemplateFilemanager.CS.ttinclude" #>
+<#@ include file="AppSettingsConfiguration.ttinclude" #>
+<#
+    var manager = TemplateFileManager.Create(this);
+
+    foreach(var site in sites)
+    {
+        var fileTransform =  site.Environment == SiteEnvironment.none ? "" :"." + site.Environment;
+        var fileName = string.Format("Web.AppSettings{0}.config", fileTransform);
+        manager.StartNewFile(fileName);
+#>
+<appSettings>
+  <add key="webpages:Version" value="3.0.0.0" />
+  <add key="vs:EnableBrowserLink" value="false" />
+  <add key="EnableNumberGroup" value="1" />
+  <add key="Disabled_NumberGame" value="0" />
+  <add key="Disabled_NumberCommission" value="0" />
+  <add key="Disabled_NumberGameStatus" value="1" />
+   
+  <add key="EnableLiveCasino" value="1" />
+  <add key="EnableVirtualSports" value="1" />
+  <add key="EnableKeno" value="1" />
+   
+   
+  <add key="EnableDoubleCommission" value="1" />
+  <add key="EnableSessionValidatingService" value="0" />
+  <add key="EnableMemberWinLimit" value="1" />
+   
+  <add key="IsShowTennisOtherBettype" value="1" />
+  <add key="IsAllowUpdateESportsStatus" value="0" />
+  <add key="IsShowGoldDeluxeSettingForCredit" value="1" />
+  <add key="IsShowMyanmarOdds" value="1" />
+  <add key="IsShowSportsbook2" value="1" />
+  <add key="IsShowColossusBets" value="1" />
+  <add key="EnableProduct-2" value="1" /> 
+  <add key="EnableProduct-20" value="1" />
+  <add key="EnableProduct-21" value="1" />
+  <add key="EnableProduct-22" value="1" />
+  <add key="EnableProduct-24" value="1" />
+  <add key="RemoteRefURL_Msg" value="" />
+  <add key="RemoteRefURL" value="<#=site.RemoteRefURL#>" />
+  <add key="IsNeutralSite" value="0" />
+  <add key="LocalTest" value="<#=site.LocalTest#>" />
+  <add key="PiwikSiteId" value="<#=site.PiwikSiteId#>" />
+  <add key="PiwikUrl" value="//pw.detecas.com/piwik.php" />
+  <add key="PiwikScript" value="//pw.detecas.com/piwik.js" />
+  <add key="ApplicationName" value="<#=site.ApplicationName#>" />
+  <add key="aspnet:MaxJsonDeserializerMembers" value="150000" />
+
+  <add key="ResultSiteVirtualPath" value="/site-results" />
+  <add key="TotalbetsForecastSiteVirtualPath" value="/site-totalbetsforecast" />
+  <add key="AssetAppPath" value="/assets" />
+  <add key="OldMainAppPath" value="/ex-main" />
+</appSettings><#
+    }
+  <add key="ReportsAppPath" value="/site-reports" />
+
+    manager.Process();
+#>
+  <add key="AccessDeniedPage" value="AccessDenied.aspx"/>

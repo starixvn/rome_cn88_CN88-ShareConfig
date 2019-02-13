@@ -1,0 +1,9 @@
+
+/.vs
+/*/bin
+/*/obj
+/packages
+StyleCop.Cache
+Alpha.ConfigurationSharing/vwd.webinfo
+/Alpha.ConfigurationSharing.v3.ncrunchsolution.user
+/Alpha.CN88.ConfigurationSharing.v3.ncrunchsolution.user
