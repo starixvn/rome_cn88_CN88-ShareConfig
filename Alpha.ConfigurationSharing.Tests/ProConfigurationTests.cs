@@ -3,7 +3,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class UAT2ConfigurationTests : ConfigurationByEnvironmentTests
+    public class ProConfigurationTests : ConfigurationByEnvironmentTests
     {
         // We must use this property because NUnit can't load ExpectedAppSettings from base class
         public static string[] ExpectedAppSettingsChild
@@ -19,15 +19,15 @@
         {
             get
             {
-                return ExpectedConnectionsStringsUAT;
+                return ExpectedConnectionsStrings;
             }
         }
 
         [OneTimeSetUp]
         public override void TestFixtureSetUp()
         {
-            RelativeAppSettingsAndConnectionStringTestPath = "AppSettingsAndConnectionStringTest.uat2.config";
-            WebConfigRelativePath = "Web.uat2.config";
+            RelativeAppSettingsAndConnectionStringTestPath = "AppSettingsAndConnectionStringTest.pro.config";
+            WebConfigRelativePath = "Web.pro.config";
             base.TestFixtureSetUp();
         }
 
@@ -46,7 +46,7 @@
         [Test]
         public override void ValidateConnectionStrings_LoadedConnectionStrings_ReturnCorrectItemLength()
         {
-            base.ValidateConnectionStrings_LoadedConnectionStringsUAT_ReturnCorrectItemLength();
+            base.ValidateConnectionStringsForSwitchingBetweenDB053AndDB054_LoadedConnectionStrings_ReturnCorrectItemLength();
         }
 
         [Test, TestCaseSource("ExpectedConnectionsStringsChild")]
