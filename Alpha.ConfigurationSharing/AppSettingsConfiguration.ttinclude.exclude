@@ -249,19 +249,19 @@
                 switch(Environment)
                 {
                     case SiteEnvironment.none:
-                        return "AlphaSiteName";
+                        return "CN88SiteName";
                     case SiteEnvironment.automation:
-                        return "AlphaSiteName";
+                        return "CN88SiteName";
                     case SiteEnvironment.backupMNLExNap:
-                        return "AlphaSite_NAP_EXTERNAL";
+                        return "CN88Site_NAP_EXTERNAL";
                     case SiteEnvironment.backupMNLI1:
-                        return "AlphaSite_PRO_I1";
+                        return "CN88Site_PRO_I1";
                     case SiteEnvironment.backupMNLI7:
-                        return "AlphaSite_PRO_I7";
+                        return "CN88Site_PRO_I7";
                     case SiteEnvironment.backupMNLNap:
-                        return "AlphaSite_NAP_INTERNAL";
+                        return "CN88Site_NAP_INTERNAL";
                     case SiteEnvironment.local:
-                        return "AlphaSiteName";
+                        return "CN88SiteName";
                     case SiteEnvironment.napexternal:
                         return "AlphaSite_NAP_EXTERNAL";
                     case SiteEnvironment.napinternal:
